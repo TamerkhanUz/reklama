@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="uz">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kripto Yangiliklar va Narxlar — CryptoTash</title>
+  <meta name="description" content="Bitcoin, Ethereum va boshqa kripto valyutalar haqida yangiliklar, narxlar va tahlillar.">
+  <style>
+    :root{
+      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#6ee7b7; --glass: rgba(255,255,255,0.03);
+      --max-w:1100px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#071226 0%, #071022 100%);color:#e6eef6}
+    .wrap{max-width:var(--max-w);margin:28px auto;padding:20px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,#0ea5a3,#7c3aed);display:flex;align-items:center;justify-content:center;font-weight:700}
+    nav a{color:var(--muted);text-decoration:none;margin-left:18px;font-size:15px}
+    .hero{background:var(--glass);padding:26px;border-radius:14px;margin-top:18px;display:flex;gap:24px;align-items:center}
+    .hero-left{flex:1}
+    .hero h1{margin:0;font-size:28px}
+    .hero p{color:var(--muted);margin-top:8px}
+    .cta{margin-top:14px;display:flex;gap:10px}
+    .btn{padding:10px 14px;border-radius:10px;border:0;cursor:pointer;font-weight:600}
+    .btn.primary{background:linear-gradient(90deg,#06b6d4,#7c3aed);color:#051022}
+    .btn.ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--muted)}
+
+    /* Ticker / Prices */
+    .prices{display:flex;gap:12px;flex-wrap:wrap}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:14px;border-radius:12px;min-width:180px}
+    .card h3{margin:0;font-size:14px}
+    .price{font-size:18px;font-weight:700;margin-top:6px}
+    .change{font-size:13px;margin-top:6px}
+
+    /* Layout */
+    .grid{display:grid;grid-template-columns:1fr 360px;gap:18px;margin-top:18px}
+    .panel{background:var(--card);padding:14px;border-radius:12px}
+    .news-item{padding:10px 0;border-bottom:1px dashed rgba(255,255,255,0.03)}
+    .news-item:last-child{border-bottom:none}
+    footer{margin-top:26px;color:var(--muted);font-size:14px;text-align:center}
+
+    /* Responsive */
+    @media (max-width:900px){.grid{grid-template-columns:1fr}.hero{flex-direction:column;align-items:flex-start}.prices{justify-content:flex-start}}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">CT</div>
+        <div>
+          <div style="font-weight:700">CryptoTash</div>
+          <div style="font-size:12px;color:var(--muted)">Kripto yangiliklar va real vaqtdagi narxlar</div>
+        </div>
+      </div>
+      <nav>
+        <a href="#">Bosh sahifa</a>
+        <a href="#prices">Narxlar</a>
+        <a href="#news">Yangiliklar</a>
+        <a href="#about">Biz haqimizda</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-left">
+        <h1>Bitcoin, Ethereum va boshqa kriptolarni kuzatib boring</h1>
+        <p>Oddiy va tezkor interfeys — joriy narxlar, so'nggi yangiliklar va oson tahlil vositalari.</p>
+        <div class="cta">
+          <button class="btn primary" onclick="scrollToSection('prices')">Narxlarni ko'rish</button>
+          <button class="btn ghost" onclick="scrollToSection('news')">Yangiliklar</button>
+        </div>
+      </div>
+      <div style="width:320px">
+        <div class="panel">
+          <div style="font-size:13px;color:var(--muted)">Eng so'nggi narxlar</div>
+          <div id="prices" class="prices" style="margin-top:10px">
+            <!-- JS will inject price cards here -->
+          </div>
+          <div style="margin-top:10px;text-align:right;font-size:12px;color:var(--muted)">Ma'lumot CoinGecko API orqali olinadi</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid">
+      <main>
+        <div class="panel">
+          <h2 id="news">So'nggi yangiliklar</h2>
+          <div id="news-list">
+            <!-- Static placeholders. You can replace with real news fetch -->
+            <div class="news-item">
+              <div style="font-weight:700">Bitcoin narxi 5% o'sdi</div>
+              <div style="color:var(--muted);font-size:13px">Qisqacha tavsif — bozor dinamikasi va asosiy omillar.</div>
+            </div>
+            <div class="news-item">
+              <div style="font-weight:700">Ethereum 2.0 yangilanishi haqida eng so'nggi ma'lumot</div>
+              <div style="color:var(--muted);font-size:13px">Client va validator update'lari haqida.</div>
+            </div>
+            <div class="news-item">
+              <div style="font-weight:700">Yangi DeFi loyiha rekord darajada investitsiya oldi</div>
+              <div style="color:var(--muted);font-size:13px">Loyiha tafsilotlari va potentsial xavflar.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" style="margin-top:14px">
+          <h3>Tahlil va resurslar</h3>
+          <ul style="color:var(--muted);line-height:1.7">
+            <li>Kripto bozorining asosiy ko'rsatkichlari</li>
+            <li>Qanday qilib xavfsiz hamyon tanlash</li>
+            <li>Tokenomics va tahlil asoslari</li>
+          </ul>
+        </div>
+      </main>
+
+      <aside>
+        <div class="panel">
+          <h3>Obuna bo'ling</h3>
+          <p style="color:var(--muted);font-size:13px">Yangiliklar va muhim narx ogohlantirishlari uchun email yozing.</p>
+          <form id="subscribe" onsubmit="event.preventDefault();subscribe()">
+            <input id="email" type="email" placeholder="Sizning email" required style="width:100%;padding:10px;border-radius:8px;border:0;margin-top:8px;background:#071822;color:#e6eef6">
+            <button class="btn primary" style="width:100%;margin-top:10px">Obuna bo'lish</button>
+          </form>
+        </div>
+
+        <div class="panel" style="margin-top:14px">
+          <h4>Tez havolalar</h4>
+          <ul style="color:var(--muted);line-height:1.8">
+            <li><a href="#" style="color:var(--muted);text-decoration:none">Narxlar</a></li>
+            <li><a href="#" style="color:var(--muted);text-decoration:none">Portfel kuzatuvchisi</a></li>
+            <li><a href="#" style="color:var(--muted);text-decoration:none">Xavfsizlik bo'limi</a></li>
+          </ul>
+        </div>
+      </aside>
+    </div>
+
+    <footer>
+      <div>© <span id="year"></span> CryptoTash — Ma'lumotlar faqat ma'lumot uchun. Hech qachon moliyaviy maslahat emas.</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+    function scrollToSection(id){
+      document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});
+    }
+
+    // Simple subscribe mock
+    function subscribe(){
+      const email = document.getElementById('email').value;
+      alert('Rahmat! ' + email + ' ga yangiliklar yuboriladi (demo).');
+      document.getElementById('subscribe').reset();
+    }
+
+    // Live price fetch from CoinGecko (public, limits apply)
+    async function loadPrices(){
+      const ids = ['bitcoin','ethereum','solana','ripple','cardano'];
+      const url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids='+ids.join(',')+'&order=market_cap_desc&per_page=100&page=1&sparkline=false';
+      try{
+        const res = await fetch(url);
+        const data = await res.json();
+        const container = document.getElementById('prices');
+        container.innerHTML = '';
+        data.forEach(c => {
+          const d = document.createElement('div');
+          d.className = 'card';
+          const change = (c.price_change_percentage_24h||0).toFixed(2);
+          d.innerHTML = `<h3>${c.name} <span style="font-size:12px;color:var(--muted)">(${c.symbol.toUpperCase()})</span></h3>
+                         <div class="price">$${Number(c.current_price).toLocaleString()}</div>
+                         <div class="change" style="color:${change>=0? '#8ef58a':'#ff8a8a'}">${change}% (24h)</div>`;
+          container.appendChild(d);
+        })
+      }catch(e){
+        console.error(e);
+        document.getElementById('prices').innerHTML = '<div style="color:var(--muted)">Narxlarni olishda xatolik yuz berdi — iltimos internetga ulanganligingizni tekshiring.</div>';
+      }
+    }
+
+    loadPrices();
+    // yangilash: 60 soniya
+    setInterval(loadPrices, 60000);
+  </script>
+</body>
+</html>
